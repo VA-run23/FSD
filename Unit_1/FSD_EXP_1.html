@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Information Form</title>
+</head>
+<body>
+
+<form>
+  <table cellpadding="8" cellspacing="0" border="0">
+    <tr>
+      <td><label for="Name">Name</label></td>
+      <td><input id="Name" type="text" placeholder="Enter your name"></td>
+    </tr>
+
+    <tr>
+      <td><label for="Email">Email</label></td>
+      <td><input id="Email" type="email" placeholder="Enter your email"></td>
+    </tr>
+
+    <tr>
+      <td><label for="Age">Age</label></td>
+      <td><input id="Age" type="number" placeholder="Enter your age"></td>
+    </tr>
+
+    <tr>
+      <td><label for="Country">Country</label></td>
+      <td>
+        <select id="Country" name="country">
+          <option value="">Select your country</option>
+          <option value="India" selected>India</option>
+          <option value="Nepal">Nepal</option>
+          <option value="Bhutan">Bhutan</option>
+          <option value="Myanmar">Myanmar</option>
+          <option value="Russia">Russia</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td><label for="Password">Password</label></td>
+      <td><input id="Password" type="password" placeholder="Enter your password"></td>
+    </tr>
+
+    <tr>
+      <td><label for="Resume">Resume</label></td>
+      <td><input id="Resume" type="file" name="resume"> No file chosen</td>
+    </tr>
+
+    <tr>
+      <td><label>Hobbies</label></td>
+      <td>
+        <input type="checkbox" id="cricket" name="Hobbies" value="Cricket">
+        <label for="cricket">Cricket</label>
+        <input type="checkbox" id="football" name="Hobbies" value="Football">
+        <label for="football">Football</label>
+      </td>
+    </tr>
+
+    <tr>
+      <td><label>Gender</label></td>
+      <td>
+        <input type="radio" id="Male" name="Gender" value="Male">
+        <label for="Male">Male</label>
+        <input type="radio" id="Female" name="Gender" value="Female">
+        <label for="Female">Female</label>
+      </td>
+    </tr>
+
+    <tr>
+      <td><label for="City">City</label></td>
+      <td>
+        <select id="City" name="City">
+          <option value="">Select your city</option>
+          <option value="Mysore">Mysore</option>
+          <option value="Udupi">Udupi</option>
+          <option value="Shivamogga">Shivamogga</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td><label for="Address">Address</label></td>
+      <td><textarea id="Address" rows="3" cols="30" placeholder="Enter your address here"></textarea></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+</body>
+</html>
