@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h3>Enter any two values</h3>
+    <label for="n1">Number 1</label>
+    <input type="number" id="n1"><br>
+    
+    <label for="n2">Number 2</label>
+    <input type="number" id="n2"><br><br>
+
+    <button type="button" onclick="calculate('add')">ADDITION</button>
+    <button type="button" onclick="calculate('sub')">SUBTRACTION</button>
+    <button type="button" onclick="calculate('mul')">MULTIPLICATION</button>
+    <button type="button" onclick="calculate('div')">DIVISION</button>
+
+    <p id="result">Result: </p>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
