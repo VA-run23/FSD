@@ -1,0 +1,72 @@
+<!-- My own handwritten program  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment number 4 :: My own handwritten program</title>
+    <style>
+        body {
+            height: auto;
+            width: 100%;
+            border: 2px solid orange;
+            padding: 20px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1 -->
+    <button id="btn">Click to change the text</button>
+    <p id="textIns">Before Button click</p>
+
+    <!-- 3 -->
+    <input type="text" name="tempText" id="textt">
+    <p id="ddText">On input, it should change</p>
+
+    <!-- 4 -->
+    <input type="password" id="pass">
+    <p id="strength">Weak Password</p>
+
+    <script>
+        // Updated body click handler
+        document.body.addEventListener('click', function(x) {
+            if (x.target.tagName !== 'BUTTON' && x.target.tagName !== 'INPUT') {
+                alert("First program done");
+            }
+        });
+
+        // 2 - Button click changes text
+        const btn = document.getElementById("btn");
+        const textIns = document.getElementById("textIns");
+
+        btn.addEventListener('click', function() {
+            btn.innerText = "Button Clicked";
+            textIns.innerText = "Button is clicked, displaying this message in a paragraph tag";
+        });
+
+        // 3 - Input text updates paragraph
+        const dynamicText = document.getElementById("textt");
+        const ddText = document.getElementById("ddText");
+
+        dynamicText.addEventListener("input", function() {
+            ddText.innerText = dynamicText.value;
+        });
+
+        // 4 - Password strength checker
+        const pass = document.getElementById("pass");
+        const strength = document.getElementById("strength");
+
+        pass.addEventListener('input', function() {
+            const str = pass.value;
+            if (str.length <= 3) {
+                strength.innerText = "Weak password";
+            } else if (str.length > 3 && str.length <= 8) {
+                strength.innerText = "Good password";
+            } else {
+                strength.innerText = "Strong password";
+            }
+        });
+    </script>
+</body>
+</html>

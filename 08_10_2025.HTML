@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Mouse Events in JS </title>
+    <style>
+        #mouseBox {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            border : 2px solid blue;
+            text-align: center ;
+            line-height: 300px;
+            font-size: 20px;
+            margin-top: 50px;
+        }
+    </style>
+    </head>
+    <body>
+        <div id = "mouseBox"> Hover or click ME</div>
+        <script>
+            const box = document.getElementById("mouseBox");
+            box.onclick = function(){
+                 box.innerHTML - "Box Clicked!";
+                 box.style.backgroundColor = "lightgreen";
+            };
+
+            box.onmouseover = function(){
+                box.innerHTMl = "mouse Over!";
+                box.style.backgroundColor = "pink";
+            };
+            
+            box.onmouseout = function(){
+                box.innerHTML = "mouse OUt!";
+                box.style.backgroundColor = "yellow";
+            };
+
+            box.onmousedown = function(){
+                    box.innerHTML = "mouse down";
+                    box.style.backgroundColor = "orange";
+            };
+
+            box.onblclick = function(){
+                box.innerHTML = "box double clicked ";
+                box.style.backgroundColor = "brown";
+            };
+
+            box.onmouseup = function() {
+                box.innerHTML = "mouse Up!";
+                box.style.backgroundColor = "red";
+            };
+
+        </script>
+    </body>
+</html>

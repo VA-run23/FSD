@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment number 5 :: MY handwritten program</title>
+</head>
+<body>
+    <script>
+        function generateAnswer() {
+            return Math.floor(Math.random() * 100) + 1; // Ensures range is 1–100
+        }
+
+        function playGame() {
+            let playAgain = true;
+
+            while (playAgain) {
+                let answer = generateAnswer();
+                let guessedCorrectly = false;
+
+                while (!guessedCorrectly) {
+                    let guessInput = prompt("Guess a number between 1 and 100:");
+                    let guess = parseInt(guessInput);
+
+                    if (isNaN(guess)) {
+                        alert("Please enter a valid number.");
+                        continue;
+                    }
+
+                    if (guess < answer) {
+                        alert("Entered value is too low.");
+                    } else if (guess > answer) {
+                        alert("Entered value is too high.");
+                    } else {
+                        alert("🎉 Congratulations! You guessed the correct number.");
+                        guessedCorrectly = true;
+                    }
+                }
+
+                playAgain = confirm("Do you want to play again?");
+            }
+
+            alert("Thanks for playing! Goodbye.");
+        }
+
+        playGame();
+    </script>
+</body>
+</html>
