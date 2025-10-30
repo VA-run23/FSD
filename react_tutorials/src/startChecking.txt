@@ -1,0 +1,2 @@
+cd react_tutorials/src
+npm start
