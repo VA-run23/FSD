@@ -1,0 +1,74 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>Event Handling Demo</title>  
+</head>  
+<body style="padding: 20px;">  
+  
+    <h2>JavaScript Event Handling Example</h2>  
+    <!-- 1. Button that changes text and displays success message -->  
+    <button id="myButton">Click Me</button>  
+    <p id="successMsg" style="color: green; font-weight: bold;"></p>  
+    <br><br>  
+    <!-- 2. Textbox that updates paragraph dynamically -->  
+    <label>Type Something: </label>  
+    <input type="text" id="textInput">  
+    <p id="displayPara"></p>  
+    <br>  
+    <!-- 3. Password strength indicator -->  
+    <label>Enter Password: </label>  
+    <input type="password" id="passwordInput">  
+    <p id="passwordStrength"></p>  
+    <script>  
+        /* -------------------------------------------------------------  
+           1. Event: onclick on <body>  
+              Purpose: Trigger an alert when body is clicked  
+        ------------------------------------------------------------- */  
+        document.body.onclick = function () {  
+            alert("You clicked on the page!");  
+        }; 
+        /* -------------------------------------------------------------  
+           2. Event: onclick on button  
+              Purpose:  
+              - Change button text  
+              - Display success message  
+        ------------------------------------------------------------- */  
+        document.getElementById("myButton").onclick = function (event) {  
+            event.stopPropagation(); // Prevents body click alert when button is clicked  
+            this.innerText = "Clicked!";  
+            document.getElementById("successMsg").innerText = "Button clicked successfully!";  
+        };  
+        /* -------------------------------------------------------------  
+           3. Event: oninput on textbox  
+              Purpose:  
+              - Update paragraph as user types  
+        ------------------------------------------------------------- */  
+        document.getElementById("textInput").oninput = function () {  
+            document.getElementById("displayPara").innerText = "You typed: " + this.value;  
+        };  
+        /* -------------------------------------------------------------  
+           4. Event: onkeyup on password box  
+              Purpose:  
+              - Check password length  
+              - Display strength: weak, medium, strong  
+        ------------------------------------------------------------- */  
+        document.getElementById("passwordInput").oninput = function () {  
+            let password = this.value;  
+            let strengthMsg = "";  
+            if (password.length < 4) {  
+                strengthMsg = "Password Strength: Weak";  
+                document.getElementById("passwordStrength").style.color = "red";  
+            }   
+            else if (password.length < 8) {  
+                strengthMsg = "Password Strength: Medium";  
+                document.getElementById("passwordStrength").style.color = "orange";  
+            }   
+            else {  
+                strengthMsg = "Password Strength: Strong";  
+                document.getElementById("passwordStrength").style.color = "green";  
+            }  
+            document.getElementById("passwordStrength").innerText = strengthMsg;  
+        };  
+    </script>  
+</body>  
+</html>  

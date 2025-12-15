@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <script> 
+function student(){ 
+    const students=[{name:"teja", marks:98}, 
+        {name:"teja", marks:98}, 
+        {name:"pavan", marks:95}, 
+        {name:"jsdh", marks:85}, 
+        {name:"jshj", marks:83}, 
+        {name:"jhsj", marks:93} 
+    ]; 
+    let switchtoCgpa=students.map(s=>{ 
+        return{ 
+            name:s.name, 
+            cgpa:(s.marks/10) 
+        }; 
+    }); 
+    let topstudents=switchtoCgpa.filter(s=>s.cgpa>=9); 
+    let totaltopstudents=topstudents.reduce((count)=>count+1,0); 
+    document.write("<h2>the student list is</h2>"); 
+    topstudents.forEach(s=>{ 
+        document.write("<p>name: "+s.name+ " cgpa "+s.cgpa+"</p>"); 
+    }); 
+    document.write("<h4>totalcount:"+totaltopstudents+"!</h4>"); 
+} 
+student(); 
+    </script> 
+</body> 
+</html>

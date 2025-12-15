@@ -1,0 +1,46 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Document</title>  
+    </head>  
+    <body>  
+        <h2 id="header">Welcome to demo prog</h2>  
+        <ul>  
+            <li>item1</li>  
+            <li>item2</li>  
+            <li>item3</li>    
+        </ul>  
+        <button>Button A</button>  
+        <button>Button B</button>     
+        <button>Button C</button>  
+        <p>This is 1st para</p>  
+        <p class="highlight">this is 2nd para</p>  
+        <p>This is 3rd para</p>  
+        <script>  
+            document.getElementById("header").style.backgroundColor="yellow"  
+            const List = document.querySelectorAll("ul li")  
+            List.forEach(li=>{  
+                li.style.color="blue";  
+            });  
+            const buttons = document.querySelectorAll("button");  
+            buttons.forEach(button=>{  
+                button.addEventListener("click",()=>{  
+                    buttons.forEach(btn=>{  
+                        btn.textContent="Clicked";  
+                    });  
+                });      
+            });   
+            const para = document.querySelectorAll("p");  
+            para.forEach(p=>{  
+                p.style.fontSize="50px";  
+            }); 
+             const firstHighlight = document.querySelector(".highlight");  
+        if (firstHighlight) {  
+            firstHighlight.innerText = "This paragraph has been updated!";  
+        }  
+        </script>  
+    </body>  
+</html> 

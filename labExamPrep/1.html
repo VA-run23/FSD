@@ -1,0 +1,85 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>User Information Form</title> 
+  <style> 
+    form { 
+      border: 1px solid black; 
+      padding: 15px; 
+      width: 300px; 
+    } 
+  </style> 
+</head> 
+<body> 
+  <form> 
+    <h2>UserInformationForm</h2> 
+    <table> 
+      <tr> 
+        <td><label>Name</label></td> 
+        <td><input type="text" id="Name"></td> 
+      </tr> 
+      <tr> 
+        <td><label>Email</label></td> 
+        <td><input type="email" id="Email"></td> 
+      </tr> 
+      <tr> 
+        <td><label>Age</label></td> 
+        <td><input type="number" min="1" max="100" id="age"></td> 
+      </tr> 
+      <tr> 
+        <td><label>Country</label></td> 
+        <td> 
+          <select name="country" id="country"> 
+            <option value="India">India</option> 
+            <option value="Japan">Japan</option> 
+            <option value="USA">USA</option> 
+          </select> 
+        </td> 
+      </tr> 
+      <tr> 
+        <td><label for="Password">Password</label></td> 
+        <td><input type="password" id="Password"></td> 
+      </tr> 
+      <tr> 
+        <td><label>Resume</label></td> 
+        <td><input type="file" id="Resume"></td> 
+      </tr> 
+      <tr> 
+        <td><label>Hobbies</label></td> 
+        <td> 
+          <input type="checkbox" id="Hobbies" value="Cricket"> Cricket 
+          <input type="checkbox" id="Hobbies" value="Football"> Football 
+        </td> 
+      </tr> 
+      <tr> 
+        <td><label>Gender</label></td> 
+        <td> 
+          <input type="radio" name="Gender" value="Male"> Male 
+          <input type="radio" name="Gender" value="Female"> Female 
+        </td> 
+      </tr> 
+      <tr> 
+        <td><label>City</label></td> 
+        <td> 
+          <select name="city"> 
+            <option value="">--Select City--</option> 
+            <option value="Mysuru">Mysuru</option> 
+            <option value="Mandya">Mandya</option> 
+            <option value="Bengaluru">Bengaluru</option> 
+          </select> 
+        </td> 
+      </tr> 
+      <tr> 
+        <td><label>Address</label></td> 
+        <td><textarea name="address"></textarea></td> 
+      </tr> 
+      <tr> 
+        <td colspan="2" > 
+          <button type="submit">Submit</button> 
+          <button type="reset">Reset</button> 
+        </td> 
+      </tr> 
+    </table> 
+  </form> 
+</body> 
+</html>

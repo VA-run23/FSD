@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <h1>Number guessing game</h1>
+    <script> 
+        function palygame(){ 
+            let randomNumber=Math.floor(Math.random()*100)+1; 
+            let guess; 
+            let attempts=0; 
+ 
+            do{ 
+                guess=parseInt(prompt("guess the number between 1 and 100")); 
+                attempts++; 
+                if(guess>randomNumber){ 
+                    alert("Too High"); 
+                } 
+                else if(guess<randomNumber){ 
+                    alert("Too Low"); 
+                } 
+                else if(guess==randomNumber){ 
+                    alert("congratulation "+randomNumber+"in"+attempts+"!"); 
+                } 
+                else{ 
+                    alert("enter the valid number"); 
+                } 
+            }while(guess!==randomNumber); 
+            let Palyagain=confirm("do You play again"); 
+            if(Palyagain){ 
+                palygame(); 
+            }else{ 
+                alert("Thank You for Palying"); 
+            } 
+        } 
+        
+        
+        palygame(); 
+    </script> 
+</body> 
+</html>

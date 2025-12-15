@@ -1,0 +1,155 @@
+<!-- 22. Design a Registration Form and Validate Using JavaScript 
+       Create a registration form that contains the following fields: 
+1. Username 
+2. Email 
+3. Mobile Number 
+4. Password 
+5. Confirm Password 
+6. Branch Selection (using a dropdown) 
+7. Upload Profile Picture 
+8. Register and Reset Buttons 
+Write a JavaScript program to validate the form with the following conditions: 
+i. Username must be at least 6 characters long. 
+ii. Email must follow the correct email format. 
+iii. Mobile number must contain exactly 10 digits. 
+iv. Password must include both letters and numbers. 
+v. Confirm Password must match the password. 
+vi. Display error messages next to each field if validation fails. 
+vii. After successful validation, display the user details in a simple, formatted        
+card using DOM elements.  -->
+
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Registration Form</title> 
+</head> 
+<body> 
+<h2>Registration Form</h2> 
+<form id="regForm"> 
+    <label>Username:</label><br> 
+    <input type="text" id="username" required><br> 
+    <div id="uErr"></div><br> 
+    <label>Email:</label><br> 
+    <input type="email" id="email" required><br> 
+    <div id="eErr"></div><br> 
+    <label>Mobile Number:</label><br> 
+    <input type="tel" id="mobile" required><br> 
+    <div id="mErr"></div><br> 
+    <label>Password:</label><br> 
+    <input type="password" id="password" required><br> 
+    <div id="pErr"></div><br> 
+    <label>Confirm Password:</label><br> 
+    <input type="password" id="cpassword" required><br> 
+    <div id="cErr"></div><br> 
+    <label>Branch:</label><br> 
+    <select id="branch" required> 
+        <option value="">-- Select Branch --</option> 
+        <option value="CSE">CSE</option> 
+        <option value="ECE">ECE</option> 
+        <option value="MECH">MECH</option> 
+        <option value="CIVIL">CIVIL</option> 
+    </select><br> 
+    <div id="bErr"></div><br> 
+    <label>Upload Profile Picture:</label><br> 
+    <input type="file" id="photo" accept="image/*"><br> 
+    <div id="phErr"></div><br> 
+    <button type="button" onclick="validateForm()">Register</button> 
+    <button type="reset">Reset</button> 
+</form> 
+<br> 
+<div id="resultCard"></div> 
+<script>
+function validateForm() {
+    let username = document.getElementById("username").value;
+    let email = document.getElementById("email").value;
+    let mobile = document.getElementById("mobile").value;
+    let password = document.getElementById("password").value;
+    let confirmPassword = document.getElementById("confirmPassword").value;
+    let branch = document.getElementById("branch").value;
+    let photo = document.getElementById("photo").files[0];
+
+    // Clear old error messages
+    document.getElementById("uError").innerHTML = "";
+    document.getElementById("eError").innerHTML = "";
+    document.getElementById("mError").innerHTML = "";
+    document.getElementById("pError").innerHTML = "";
+    document.getElementById("cError").innerHTML = "";
+    document.getElementById("bError").innerHTML = "";
+    document.getElementById("photoError").innerHTML = "";
+
+    let valid = true;
+
+    // Username validation
+    if (username.length < 6) {
+        document.getElementById("uError").innerHTML = "Username must be at least 6 characters.";
+        valid = false;
+    }
+
+    // Email validation (simple check without regex)
+    if (!(email.includes("@") && email.includes("."))) {
+        document.getElementById("eError").innerHTML = "Invalid email format.";
+        valid = false;
+    }
+
+    // Mobile number validation (check length and digits only)
+    if (mobile.length !== 10 || isNaN(mobile)) {
+        document.getElementById("mError").innerHTML = "Mobile must contain exactly 10 digits.";
+        valid = false;
+    }
+
+    // Password validation (must contain at least one letter and one number)
+    let hasLetter = false;
+    let hasNumber = false;
+    for (let char of password) {
+        if (isNaN(char)) {
+            hasLetter = true;
+        } else {
+            hasNumber = true;
+        }
+    }
+    if (!(hasLetter && hasNumber)) {
+        document.getElementById("pError").innerHTML = "Password must include letters and numbers.";
+        valid = false;
+    }
+
+    // Confirm Password
+    if (password !== confirmPassword) {
+        document.getElementById("cError").innerHTML = "Passwords do not match.";
+        valid = false;
+    }
+
+    // Branch selection
+    if (branch === "") {
+        document.getElementById("bError").innerHTML = "Please select a branch.";
+        valid = false;
+    }
+
+    // Photo validation
+    if (!photo) {
+        document.getElementById("photoError").innerHTML = "Please upload a photo.";
+        valid = false;
+    }
+
+    // Stop if invalid
+    if (!valid) return;
+
+    // Display user card
+    let reader = new FileReader();
+    reader.onload = function(e) {
+        document.getElementById("result").innerHTML = `
+            <h3>User Details</h3>
+            <div>
+                <img src="${e.target.result}" width="100" height="100"><br>
+                <strong>Username:</strong> ${username}<br>
+                <strong>Email:</strong> ${email}<br>
+                <strong>Mobile:</strong> ${mobile}<br>
+                <strong>Branch:</strong> ${branch}<br>
+            </div>
+        `;
+    };
+    reader.readAsDataURL(photo);
+}
+</script>
+
+</body></html>
